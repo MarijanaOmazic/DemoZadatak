@@ -1,0 +1,49 @@
+﻿@model IEnumerable<DemoZadatak.Models.Person>
+
+@{ ViewData["Title"] = "Index";
+    Layout = "_Layout"; }
+
+<div id="popUp"></div>
+<div class="col-md-12">
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>
+                    Ime i prezime
+                </th>
+                <th>
+                    OIB
+                </th>
+                <th>
+                    Datum rođenja
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @(item.Id)
+                    </td>
+                    <td>
+                        @(item.FirstName)  @(item.LastName)
+                    </td>
+                    <td>
+                        @(item.OIB)
+                    </td>
+                    <td>
+                        @(item.BirthDate.ToString("dd.MM.yyyy"))
+                    </td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-primary" data-toggle="ajax-modal" data-target="#popUpModal" data-url="@Url.Action("Details","Person",new { id=item.Id})">
+                            Otvori Pop Up
+                        </button>
+                    </td>
+                </tr>
+             }
+        </tbody>
+    </table>
+</div>

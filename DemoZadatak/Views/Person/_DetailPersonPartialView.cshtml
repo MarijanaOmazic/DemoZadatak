@@ -1,0 +1,41 @@
+﻿@model DemoZadatak.Models.Person
+
+<div class="modal fade" id="popUpModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="popUpModalLabel">Detalji osobe</h4>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>x</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <dl class="row">
+                    <dt class="col-sm-4">
+                        Ime i prezime:
+                    </dt>
+                    <dd class="col-sm-8">
+                        <label asp-for="FirstName">@Model.FirstName</label>
+                        <label asp-for="LastName">@Model.LastName</label>
+                    </dd>
+                    <dt class="col-sm-4">
+                        OIB:
+                    </dt>
+                    <dd class="col-sm-8">
+                        <label asp-for="OIB">@Model.OIB</label>
+                    </dd>
+                    <dt class="col-sm-4">
+                        Datum rođenja:
+                    </dt>
+                    <dd class="col-sm-8">
+                        <label asp-for="BirthDate">@Model.BirthDate.ToString("dd.MM.yyyy")</label>
+                    </dd>
+                </dl>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="CloseModalPopUp">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
